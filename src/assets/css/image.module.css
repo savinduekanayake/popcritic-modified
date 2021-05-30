@@ -1,0 +1,47 @@
+
+.image {
+    width: 225px;
+    height: 225px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-image: initial;
+    border-radius: 50%;
+}
+.img {
+    width: 150px;
+    height: 150px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-image: initial;
+    border-radius: 50%;
+}
+.heading {
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.subHeading {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: bold;
+    margin-bottom: 50px;
+    text-transform: none;
+    /* font-family: 'Lucida Console' */
+    /* "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+}
+
+.title {
+    font-weight: 700;
+    /* font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+    text-transform: none;
+    font-size: 1.5rem;
+}
+.subTitle {
+    color: rgb(108, 117, 125) !important;
+    padding-bottom: 0px;
+}
+.servicesBackground {
+    background-color: rgb(248, 249, 250) !important;
+}
