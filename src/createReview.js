@@ -8,6 +8,8 @@ import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 
+import Header from './header';
+
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -45,11 +47,15 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   postButton: {
+    marginTop:20,
+    marginLeft:10,
   	background: "transparent",
   	border: "2px solid white",
   	color: "white",
   	fontWeight: "bolder",
-  	borderRadius: 17
+    borderRadius: 17,
+    width : 120,
+    
   },
   disabledButton: {
     borderColor: "grey"
@@ -73,7 +79,14 @@ export default function CreateReview(props) {
   const classes = useStyles();
   const [review, setReview] = useState(window.localStorage.getItem("review") || "");
   const [rating, setRating] = useState(5);
-  var isLoggedIn = window.localStorage.getItem("token")?true:false;
+  var isLoggedIn = window.localStorage.getItem("logIn");
+  const [login,setLogin] = useState(false);
+  // var value = window.localStorage.getItem("login") 
+  var isLoggedIn =  useState( window.localStorage.getItem("login") || false );
+  // var isHiddenBool = (isHidden == 'true');
+  //var isLoggedIn =  window.localStorage.getItem("token")?true:false;
+
+
 
   const [open, setOpen] = React.useState(false);
 
@@ -91,7 +104,7 @@ export default function CreateReview(props) {
   }
 
   return (
-  	<div>
+  	<div style={{display:'grid'}}>
     { window.localStorage.setItem("review",review) }
   	<Typography className={classes.heading}>Post Review</Typography>
   	<Rating button value={rating} onChange={ (e,rtg) => setRating(rtg) } className={classes.rating} />

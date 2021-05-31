@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function addMovie(id) {
-  fetch("https://popcritic.herokuapp.com/add/"+id,{method: "POST", headers: {token: window.localStorage.getItem("token")}}).then(x=>x.text()).then(function() {
+  fetch("https://popcritic-modified.herokuapp.com/add/"+id,{method: "POST", headers: {token: window.localStorage.getItem("token")}}).then(x=>x.text()).then(function() {
   	window.location.href = "/movie/"+id;
   }).catch(console.log);
 }
@@ -75,7 +75,7 @@ export default function Search() {
         <img src={ x.poster_path?("https://image.tmdb.org/t/p/w500"+x.poster_path):"https://via.placeholder.com/400x600" } className={classes.poster} />
         
         <Typography className={classes.title}>{ x.original_title }</Typography>
-        <Typography className={classes.date}>({ x.release_date?x.release_date.split("-")[0]:"" })</Typography>
+        <Typography className={classes.date}>{ x.release_date?(x.release_date.split("-")[0]):"" }</Typography>
         
       </ListItem>
       </Link>

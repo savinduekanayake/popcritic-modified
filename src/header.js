@@ -20,6 +20,9 @@ import headerImage from './assets/images/header.png'
 const useStyles = makeStyles((theme) => ({
   header: {
     flexGrow: 1,
+    position: 'fixed',
+    zIndex: 10,
+    width:'100%'
   },
   bar: {
     background: 'rgb(30,30,30)',
@@ -100,14 +103,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SearchAppBar() {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const [profile, setProfile] = useState(1);
+  const [logIn, setLogIn] = useState(false);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleLogin = () => {
+    setLogIn(!logIn);
+    window.localStorage.setItem('login', !logIn);
+    
+  };
+
 
   useEffect(() => {
     fetch("https://popcritic.herokuapp.com/me",{headers: {token: window.localStorage.getItem("token")}}).then(resp => resp.json()).then((data) => setProfile(data)).catch(console.log);
   },[])
+
+
 
   function search(e) {
     if (e.keyCode==13) window.location.href="/search/"+e.target.value
@@ -130,7 +147,7 @@ export default function SearchAppBar() {
             </Link>
           </Typography>
           
-          </dev>
+        </dev>
 
  
           <Link aria-label="Github link" href="https://github.com/savinduekanayake/PopCritic">
@@ -153,6 +170,8 @@ export default function SearchAppBar() {
           </div>
           <Button variant="contained" href="/help" className={classes.login}>
              <HelpOutlineIcon/> <span>&nbsp;</span> Help </Button>
+
+             {/* <Button onClick={handleLogin} variant="contained" className={classes.login}>{logIn == false? "LogIn" : "LogOut"}</Button> */}
           {
            profile.pic?<Link href="/me"><Avatar alt="PopCritic" src={ profile?profile.pic:"" } className={classes.user} /></Link>:<Button variant="contained" href="https://popcritic.herokuapp.com/login" className={classes.login}>Log In</Button>
           }

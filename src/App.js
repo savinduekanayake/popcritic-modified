@@ -14,7 +14,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
 
-import image404 from './assets/images/404.gif'
+import image404 from './assets/images/404.gif';
 
 import {
   BrowserRouter as Router,
@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
     left: "50%",
     top: "50%",
     transform: "translate(-50%,-50%)"
+  },
+  header: {
+    // marginTop:50,
+    paddingTop:100
   }
 }));
 
@@ -47,7 +51,10 @@ export default function App() {
 
   return (
     	<div>
-    	<SearchAppBar />
+    	<SearchAppBar/>
+      <div className={classes.header}>
+
+      </div>
     	<Router>
     	<Switch>
           <Route exact path="/">
